@@ -7,11 +7,13 @@
 
 const totalMinutes = 70;
 
-const hours = Math.floor(totalMinutes / 60);
-const minutes = totalMinutes % 60;
-console.log(hours);
-console.log(minutes);
 
-const doubleDigitHours = String(hours).padStart(2, 0);
-const doubleDigitMinutes = String(minutes).padStart(2, 0);
-console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
+// GET THE HOUR VALUE
+// 1. Convert the totalMinutes to hours
+// 2. Retrieve the whole number out of the hours variable
+
+// GET THE MINUTES
+// 1. Retrieve the remaining values out of the divided whole number in the variable
+
+// GENERATE THE HH:MM VALUE
+// 1. Evaluate the numeric values of hour and minutes to String

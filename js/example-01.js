@@ -3,7 +3,8 @@
 
 const apples = 47;
 const grapes = 135;
-// const total = ;
+const total = apples + grapes;
 console.log(total);
-// const diff = ;
+const diff = apples - grapes;
 console.log(diff);
+console.log(Math.abs(diff));

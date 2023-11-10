@@ -8,5 +8,10 @@
 let weight = '88,3';
 let height = '1.75';
 
-// const bmi = ;
-console.log(bmi); // 28.8
+const convertedWeight = Number.parseInt(weight);
+console.log(convertedWeight);
+const convertedHeight = Number.parseFloat(height);
+console.log(convertedHeight);
+
+const bmi = convertedWeight / (convertedHeight ** 2);
+console.log(bmi.toFixed(1)); // 28.8
