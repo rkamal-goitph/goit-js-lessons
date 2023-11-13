@@ -10,3 +10,17 @@
 
 // 1. If the password is "I'm an admin", then output the string "Hello!"
 // 2. Else output the string "Wrong password"
+
+const login = prompt("Enter login");
+
+if (login === "Admin") {
+  const password = prompt("Enter password");
+
+  if (password === "I'm an admin") {
+    console.log("Hello!");
+  } else {
+    console.log("Wrong password");
+  }
+} else {
+  console.log("Canceled");
+}

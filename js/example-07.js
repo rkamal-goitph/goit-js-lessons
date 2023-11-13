@@ -5,4 +5,8 @@ let link = 'https://somesite.com/about';
 if (link.includes('my-site') && !link.endsWith('/')) {
   link += '/';
 }
+
+// alternate implementation using ternary operator
+link.includes('my-site') && !link.endsWith('/') ? link += '/' : null;
+
 console.log(link);
