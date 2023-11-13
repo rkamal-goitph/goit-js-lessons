@@ -15,3 +15,5 @@ console.log(convertedHeight);
 
 const bmi = convertedWeight / (convertedHeight ** 2);
 console.log(bmi.toFixed(1)); // 28.8
+
+// toFixed rounds with specified number of decimals

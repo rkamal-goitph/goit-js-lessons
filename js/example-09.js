@@ -6,5 +6,9 @@ const defaultValue = 10;
 const value = incomingValue || defaultValue;
 console.log(value);
 
-// const nullishCoalescedValue = incomingValue ?? defaultValue;
-// console.log(nullishCoalescedValue);
+const nullishCoalescedValue = incomingValue ?? defaultValue;
+console.log(nullishCoalescedValue);
+
+// if incoming value is null, coalesced value is defaultValue hence 10
+// if incoming value is undefined, coalesced value is defaultValue hence 10
+// if incoming value is 0, coalesced value is incoming value hence 0
