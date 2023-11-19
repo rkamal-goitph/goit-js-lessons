@@ -62,3 +62,30 @@ const account = {
    */
   getTransactionTotal(type) {},
 };
+
+// Pseudocode for the answers
+// 1. createTransaction(amount, type)
+// A transaction object must contain an amount, type, and id properties
+// This function must return a transaction object
+
+// 2. deposit(amount)
+// This function creates a transaction by calling the createTransaction method
+// The returned or created transaction will be added to the transactions array
+// The balance will be updated according to the amount deposited
+
+// 3. withdraw(amount)
+// This function creates a transaction by calling the createTransaction method
+// The returned or created transaction will be added to the transactions array
+// Before creating the transaction, a condition must be set to check whether the withdraw amount is greater than balance amount
+// Add branching option for the case where balance amount is withdrawable (withdrawAmount < balanceAmount)
+// Add branching option for the case where balance amount is not withdrawable (withdrawAmount > balanceAmount)
+
+// 4. getBalance()
+// Returns the current balance property value
+
+// 5. getTransactionDetails(id)
+// This function returns the total amount deposited or withdrawn
+// It instantiates a variable respresenting the total amount for the chosen transaction namely transactionTotalAmount
+// It iterates over the transactions array
+// It enforces a condition to check whether the accessed type property of the current object corresponds to the type provided in the getTransactionTotal function parameter
+// It calculates the total amount of the transaction type inside the condition

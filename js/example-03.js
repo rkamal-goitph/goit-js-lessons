@@ -7,3 +7,11 @@ const stones = [
   { name: 'Sapphire', price: 400, quantity: 7 },
   { name: 'Rubble', price: 200, quantity: 2 },
 ];
+
+// Pseudocode for the answers
+// 1. Create the calcTotalPrice function with the corresponding parameters
+// 2. Instantiate a variable representing the total cost of the stones namely totalPrice
+// 3. Iterate over the objects array
+// 4. Add a condition for accessing the stone name provided in the calcTotalPrice function parameter
+// 5. Calculate the totalPrice of the specified stone inside the condition
+// 6. Return the corresponding totalPrice of the specified stone

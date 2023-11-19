@@ -12,3 +12,11 @@ const user = {
   hobby: 'html',
   premium: true,
 };
+
+// Pseudocode for the answers
+// 1. Add mood property for the user object
+// 2. Update the hobby property for the user object
+// 3. Update the premium property for the user object
+// 4. Extract an array from the keys of the user object properties
+// 4. Iterate over the keys of the user object
+// 5. Print each property of the user object in key: value format
