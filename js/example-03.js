@@ -15,3 +15,18 @@ const stones = [
 // 4. Add a condition for accessing the stone name provided in the calcTotalPrice function parameter
 // 5. Calculate the totalPrice of the specified stone inside the condition
 // 6. Return the corresponding totalPrice of the specified stone
+const calcTotalPrice = function (stones, stoneName) {
+  let totalPrice = 0;
+
+  for (const stone of stones) {
+    if (stone.name === stoneName) {
+      totalPrice = stone.price * stone.quantity;
+    }
+  }
+
+  return totalPrice;
+};
+
+let total = calcTotalPrice(stones, 'Diamond'); //8100
+let total2 = calcTotalPrice(stones, 'Sapphire'); //2800
+console.log(total, total2);

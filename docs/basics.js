@@ -12,6 +12,9 @@ const book = {
   rating: 8.38,
 };
 
+// title: 'The Last Kingdom'
+// property refers to a key: value pair
+
 /*
 ╔════════════════════════════════════════╗
 ║        SHORTHAND OBJECT CREATION       ║
@@ -34,6 +37,14 @@ console.log(user.age); // 25
 ║        DOT NOTATION                    ║
 ╚════════════════════════════════════════╝
 */
+const book = {
+  title: 'The Last Kingdom',
+  author: 'Bernard Cornwell',
+  genres: ['historical prose', 'adventure'],
+  isPublic: true,
+  rating: 8.38,
+  price: 599,
+};
 
 const bookTitle1 = book.title;
 console.log(bookTitle1); // 'The Last Kingdom'
@@ -42,7 +53,7 @@ const bookGenres1 = book.genres;
 console.log(bookGenres1); // ['historical prose', 'adventure']
 
 const bookPrice1 = book.price;
-console.log(bookPrice1); // undefined
+console.log(bookPrice1); // 599
 
 /*
 ╔════════════════════════════════════════╗
@@ -66,9 +77,22 @@ console.log(bookAuthor2); // 'Bernard Cornwell'
 ╚════════════════════════════════════════╝
 */
 
-book.pageCount = 836;
-book.originalLanguage = 'en';
-book.translations = ['ua', 'ru'];
+const book = {
+  title: 'The Last Kingdom',
+  author: 'Bernard Cornwell',
+  genres: ['historical prose', 'adventure'],
+  isPublic: true,
+  rating: 8.38,
+  price: 599,
+};
+
+// book.pageCount = 836;
+// book.originalLanguage = 'en';
+// book.translations = ['ua', 'ru'];
+
+book['pageCount'] = 836;
+book['originalLanguage'] = 'en';
+book['translations'] = ['ua', 'ru'];
 
 console.log(book.pageCount); // 836
 console.log(book.originalLanguage); // 'en'
@@ -94,7 +118,7 @@ console.log(book.genres); // ['historical prose', 'adventure', 'drama']
 ╚════════════════════════════════════════╝
 */
 
-const propName = 'name';
+const propName = 'fullName';
 const newUser = {
   age: 25,
   // The name of this property will be taken from the value of the variable propNam
@@ -102,3 +126,8 @@ const newUser = {
 };
 
 console.log(newUser.name); // 'Henry Cibola'
+
+const newUser = {
+  age: 25,
+  fullName: 'Henry Cibola',
+};

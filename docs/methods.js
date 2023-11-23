@@ -60,6 +60,11 @@ const animal = {
 const dog = Object.create(animal);
 dog.name = 'Mango';
 
+const dog = {
+  legs: 4,
+  name: 'Mango',
+};
+
 console.log(dog); // {name: 'Mango'}
 console.log(dog.name); // 'Mango'
 console.log(dog.legs); // 4
@@ -138,3 +143,7 @@ console.log(total); // 20
 const entries = Object.entries(book);
 console.log(entries);
 // [["title", "The Last Kingdom"], ["author", "Bernard Cornwell"], ["rating", 8.38]]
+[
+  ['title', 'The Last Kingdom'],
+  ['author', 'Bernard Cornwell'],
+];

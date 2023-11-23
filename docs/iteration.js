@@ -17,3 +17,9 @@ for (const key in book) {
   // The property value with this key
   console.log(book[key]);
 }
+
+const books = ['Fiction', 'Nonfiction'];
+
+for (const book of books) {
+  console.log(book);
+}
