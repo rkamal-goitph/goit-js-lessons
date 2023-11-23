@@ -31,3 +31,7 @@ console.log(
     height: '1.95',
   })
 );
+
+// Pseudocode for answers
+// 1. Replace the weight and height parameters with a parameter object
+// 2. Destructure the parameter object to extract the weight and height

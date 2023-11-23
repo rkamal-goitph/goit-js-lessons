@@ -18,3 +18,7 @@ console.log(
     },
   })
 ); // "Cyberdyne Systems has 200 bots in stock"
+
+// Pseudocode for answers
+// 1. Replace the repairBots and defenceBots parameters with a parameter object
+// 2. Destructure the parameter object to extract the repair and defence bots

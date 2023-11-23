@@ -1,5 +1,5 @@
 // Example 4 - Destructuring
-// Rewrite the function so that it accepts a parameters object with properties companyName and stock and display a report abou the number of goods in the warehouse of any companies.
+// Rewrite the function so that it accepts a parameters object with properties companyName and stock and display a report about the number of goods in the warehouse of any companies.
 
 // Solution
 function getStockReport({ companyName, stock }) {
@@ -20,13 +20,5 @@ console.log(
   })
 ); // "Cyberdyne Systems has 200 items in stock"
 
-console.log(
-  getStockReport({
-    companyName: 'Belacci',
-    stock: {
-      shoes: 20,
-      skirts: 10,
-      hats: 5,
-    },
-  })
-); // "Belacci has 35 item in stock"
+// Pseudocode for answers
+// 1. Demonstrate how if we don't destructure the stock object in the function parameter, the object variables can take on flexible values as opposed to the destructured parameter object
