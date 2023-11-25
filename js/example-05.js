@@ -41,3 +41,39 @@ console.log(newContact);
 
 // Pseudocode for answers
 // 1. Recreate the new contact object by spreading partial contact in the return object of createContact function
+
+// ======================== ANSWERS BELOW ========================= //
+
+// Solution
+function createContact(partialContact) {
+  return {
+    list: 'default',
+    ...partialContact,
+    id: generateId(),
+    createdAt: Date.now(),
+  };
+}
+
+console.log(
+  createContact({
+    name: 'Mango',
+    email: 'mango@mail.com',
+    list: 'friends',
+  })
+);
+console.log(
+  createContact({
+    name: 'Poly',
+    email: 'poly@hotmail.com',
+  })
+);
+
+function generateId() {
+  return '_' + Math.random().toString(36).substr(2, 9);
+}
+
+function foo({ username } = {}) {
+  console.log(username);
+}
+
+foo();

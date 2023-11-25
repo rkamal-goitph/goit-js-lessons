@@ -35,3 +35,47 @@ console.log(
 // Pseudocode for answers
 // 1. Replace the weight and height parameters with a parameter object
 // 2. Destructure the parameter object to extract the weight and height
+
+// ======================== ANSWERS BELOW ========================= //
+
+// Approach 1
+function calcBMI(params) {
+  const numericWeight = Number(params.weight.replace(',', '.'));
+  const numericHeight = Number(params.height.replace(',', '.'));
+  return Number((numericWeight / numericHeight ** 2).toFixed(1));
+}
+
+// Approach 2
+function calcBMI(params) {
+  const { weight, height } = params;
+
+  const numericWeight = Number(weight.replace(',', '.'));
+  const numericHeight = Number(height.replace(',', '.'));
+  return Number((numericWeight / numericHeight ** 2).toFixed(1));
+}
+
+// Approach 3
+function calcBMI({ weight, height }) {
+  const numericWeight = Number(weight.replace(',', '.'));
+  const numericHeight = Number(height.replace(',', '.'));
+  return Number((numericWeight / numericHeight ** 2).toFixed(1));
+}
+
+console.log(
+  calcBMI({
+    weight: '88,3',
+    height: '1.75',
+  })
+);
+console.log(
+  calcBMI({
+    weight: '68,3',
+    height: '1.65',
+  })
+);
+console.log(
+  calcBMI({
+    weight: '118,3',
+    height: '1.95',
+  })
+);

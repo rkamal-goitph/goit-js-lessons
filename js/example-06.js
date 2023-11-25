@@ -42,3 +42,33 @@ console.log(
 // Pseudocode for answers
 // 1. Rest the nonexisting parameters in the function parameter object
 // 2. Return the concatenated firstName and lastName along with the spread additional properties
+
+// ======================== ANSWERS BELOW ========================= //
+
+// Solution
+function transformUsername({ firstName, lastName, ...otherProps }) {
+  return {
+    fullName: `${firstName} ${lastName}`,
+    ...otherProps,
+  };
+}
+
+console.log(
+  transformId({
+    id: 1,
+    firstName: 'Jacob',
+    lastName: 'Mercer',
+    email: 'j.mercer@mail.com',
+    friendCount: 40,
+  })
+);
+
+console.log(
+  transformId({
+    id: 2,
+    firstName: 'Adrian',
+    lastName: 'Cross',
+    email: 'a.cross@hotmail.com',
+    friendCount: 20,
+  })
+);

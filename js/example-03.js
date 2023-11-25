@@ -22,3 +22,26 @@ console.log(
 // Pseudocode for answers
 // 1. Replace the repairBots and defenceBots parameters with a parameter object
 // 2. Destructure the parameter object to extract the repair and defence bots
+
+// ======================== ANSWERS BELOW ========================= //
+
+// Approach 1
+function getBotReport({ companyName, bots }) {
+  return `${companyName} has ${bots.repair + bots.defence} bots in stock`;
+}
+
+// Approach 2
+function getBotReport({ companyName, bots: { repair, defence } }) {
+  return `${companyName} has ${repair + defence} bots in stock`;
+}
+
+// Usage
+console.log(
+  getBotReport({
+    companyName: 'Cyberdyne Systems',
+    bots: {
+      repair: 150,
+      defence: 50,
+    },
+  })
+); // "Cyberdyne Systems has 200 bots in stock"
