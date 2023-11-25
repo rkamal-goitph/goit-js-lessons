@@ -13,6 +13,7 @@
 // 4. Combining object properties
 
 const temps = [14, -4, 25, 8, 11];
+console.log(...temps);
 
 // ====================================Example 1====================================
 
@@ -21,9 +22,13 @@ console.log(temps);
 // ❌ This will not work because you are passing the entire array
 console.log(Math.max(temps)); // NaN
 
+Math.max(14, -4, 25, 8, 11);
+
 // The console will have a set of separate numbers
 console.log(...temps);
 // ✅ Spread the collection of elements as separate arguments
+
+Math.max(14, -4, 25, 8, 11);
 console.log(Math.max(...temps)); // 25
 
 // ====================================Example 2====================================
@@ -36,23 +41,25 @@ console.log(copyOfTemps); // [14, -4, 25, 8, 11]
 
 const lastWeekTemps = [14, 25, 11];
 const currentWeekTemps = [23, 17, 18];
-const allTemps = [...lastWeekTemps, ...currentWeekTemps];
+const allTemps = [...lastWeekTemps, ...currentWeekTemps]; // [[14, 25, 11], [23, 17, 18]]
 console.log(allTemps); // [14, 25, 11, 23, 17, 18]
 
 // ====================================Example 4====================================
 
-const first = { propA: 5, propB: 10 };
-const second = { propC: 15 };
-const third = { ...first, ...second };
-console.log(third); // { propA: 5, propB: 10, propC: 15 }
+// const first = { propA: 5, propB: 10 };
+// const second = { propC: 15 };
+// const third = { ...first, ...second };
+// console.log(third); // { propA: 5, propB: 10, propC: 15 }
 
 // ====================================Spread Order====================================
 
-// const first = { propA: 5, propB: 10, propC: 50 };
-// const second = { propC: 15, propD: 20 };
+const first = { propA: 5, propB: 10, propC: 50 };
+const second = { propC: 15, propD: 20 };
 
-// const third = { ...first, ...second };
-// console.log(third); // { propA: 5, propB: 10, propC: 15, propD: 20 }
+const third = { ...first, ...second };
+console.log(third); // { propA: 5, propB: 10, propC: 15, propD: 20 }
 
-// const fourth = { ...second, ...first };
-// console.log(fourth); // { propA: 5, propB: 10, propC: 50, propD: 20 }
+const fourth = { ...second, ...first };
+console.log(fourth); // { propA: 5, propB: 10, propC: 50, propD: 20 }
+
+fifth = { propA: 5, propB: 10, propC: 50, propD: 20 };

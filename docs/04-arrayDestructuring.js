@@ -13,19 +13,19 @@
 
 // ====================================Example 1====================================
 
-const rgb = [200, 255, 100];
-const [red, green, blue] = rgb;
+// const rgb = [200, 255, 100];
+// const [red, green, blue] = rgb;
 
-console.log(`R:${red},G:${green},B:${blue}`); // "R:200,G:255,B:100"
+// console.log(`R:${red},G:${green},B:${blue}`); // "R:200,G:255,B:100"
 
 // ====================================Example 2====================================
 
 // const rgb = [200, 255, 100];
 // let red, green, blue;
 
-[red, green, blue] = rgb;
+// [red, green, blue] = rgb;
 
-console.log(`R:${red},G:${green},B:${blue}`); // "R:200,G:255,B:10"0
+// console.log(`R:${red},G:${green},B:${blue}`); // "R:200,G:255,B:10"0
 
 // ====================================Example 3====================================
 
@@ -46,8 +46,8 @@ console.log(`R:${red},G:${green},B:${blue}`); // "R:200,G:255,B:10"0
 
 // ====================================Example 5====================================
 
-// const rgb = [200, 100, 255];
+const rgb = [200, 100, 255];
 
-// const [, , blue] = rgb;
+const [, , blue] = rgb;
 
-// console.log(`Blue: ${blue}`); // "Blue: 255"
+console.log(`Blue: ${blue}`); // "Blue: 255"

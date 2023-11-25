@@ -8,19 +8,19 @@
 // Applications:
 // 1. Ease of access to mutiple object properties
 // 2. Assigning new properties
-// 2. Assigning new properties with default values
-// 3. Creating a new variable referenced to object's property values
+// 3. Assigning new properties with default values
+// 4. Creating a new variable referenced to object's property values
 // 5. Ease of access to properties during iteration
 
 // ====================================Example 1====================================
 
-const book = {
-  title: 'The Last Kingdom',
-  author: 'Bernard Cornwell',
-  genres: ['historical prose', 'adventure'],
-  isPublic: true,
-  rating: 8.38,
-};
+// const book = {
+//   title: 'The Last Kingdom',
+//   author: 'Bernard Cornwell',
+//   genres: ['historical prose', 'adventure'],
+//   isPublic: true,
+//   rating: 8.38,
+// };
 
 const accessType = book.isPublic ? 'public' : 'private';
 const message = `Book ${book.title} by author ${book.author} with rating ${book.rating} is in ${accessType} access.`;
@@ -28,29 +28,30 @@ const message = `Book ${book.title} by author ${book.author} with rating ${book.
 // ====================================Example 2====================================
 
 // Destructuring
-const { title, author, isPublic, rating, coverImage } = book;
-console.log(coverImage); // undefined
+// const { title, author, isPublic, rating, coverImage } = book;
+// const message2 = `Book ${book.title} by author ${book.author} with rating ${book.rating} is in ${accessType} access.`;
+// console.log(coverImage); // undefined
 
 // const accessType = isPublic ? "public" : "private";
 // const message = `Book ${title} by author ${author} with rating ${rating} is in ${accessType} access.`;
 
 // ====================================Example 3====================================
 
-// const book = {
-//   title: "The Last Kingdom",
-//   author: "Bernard Cornwell",
-// };
+const book = {
+  title: 'The Last Kingdom',
+  author: 'Bernard Cornwell',
+};
 
-// // Add a cover picture if it is not in the book object
-// const {
-//   title,
-//   coverImage = "https://via.placeholder.com/640/480",
-//   author,
-// } = book;
+// Add a cover picture if it is not in the book object
+const {
+  title,
+  coverImage = 'https://via.placeholder.com/640/480',
+  author,
+} = book;
 
-// console.log(title); // The Last Kingdom
-// console.log(author); // Bernard Cornwell
-// console.log(coverImage); // https://via.placeholder.com/640/480
+console.log(title); // The Last Kingdom
+console.log(author); // Bernard Cornwell
+console.log(coverImage); // https://via.placeholder.com/640/480
 
 // ====================================Example 4====================================
 

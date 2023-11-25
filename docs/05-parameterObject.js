@@ -56,3 +56,13 @@ function doStuffWithBook({
   console.log(numberOfPages);
   // And so on
 }
+// function declaration
+// function (title, numberOfPages) ==> this does not use parameter object
+// function ({ title, numberOfPages }) ==> this is using parameter object
+
+// function call
+// doStuffWithBook('The Last Kingdom', 736) ==> this does not use parameter object
+// doStuffWithBook({
+//   title: 'The Last Kingdom',
+//   numberOfPages: 736,
+// }) ==> this is using parameter object
