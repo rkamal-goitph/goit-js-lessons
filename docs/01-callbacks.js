@@ -79,6 +79,7 @@ registerGuest('Poly', function notify(name) {
 function processCall(recipient) {
   // Simulating the subscriber’s availability with a random number
   const isRecipientAvailable = Math.random() > 0.5;
+  console.log(isRecipientAvailable);
 
   if (!isRecipientAvailable) {
     console.log(
@@ -102,6 +103,7 @@ processCall('Mango');
 function processCall(recipient, onAvailable, onNotAvailable) {
   // Simulating the subscriber’s availability with a random number
   const isRecipientAvailable = Math.random() > 0.5;
+  console.log(isRecipientAvailable);
 
   if (!isRecipientAvailable) {
     onNotAvailable(recipient);

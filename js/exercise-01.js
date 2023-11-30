@@ -6,11 +6,19 @@
 
 // logTotalPrice(product) - callback receiving product object and logging the total value of the item in the console
 
-function createProduct(partialProduct, callback) {}
+function createProduct(partialProduct, callback) {
+  const product = { ...partialProduct, id: Date.now() };
+  callback(product);
+}
 
-function logProduct(product) {}
+function logProduct(product) {
+  console.log(product);
+}
 
-function logTotalPrice(product) {}
+function logTotalPrice(product) {
+  const { price, quantity } = product;
+  console.log(price * quantity);
+}
 
 createProduct({ name: '🍎', price: 30, quantity: 3 }, logProduct);
 createProduct({ name: '🍋', price: 20, quantity: 5 }, logTotalPrice);

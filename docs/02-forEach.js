@@ -53,6 +53,10 @@ milkTeaOptions.forEach(function (milkTea, index) {
   console.log(`Index ${index}: ${milkTea}`);
 });
 
+milkTeaOptions.forEach((milkTea, index) => {
+  console.log(`Index ${index}: ${milkTea}`);
+});
+
 // =============== ARRAY OF OBJECTS
 const milkTeaOrders = [
   { flavor: 'Classic Milk Tea', sweetness: 'Regular', size: 'Medium' },
@@ -62,8 +66,15 @@ const milkTeaOrders = [
   { flavor: 'Matcha Milk Tea', sweetness: 'Regular', size: 'Large' },
 ];
 
-milkTeaOptions.forEach(function (milkTea, index) {
+milkTeaOrders.forEach(function (milkTea, index) {
   console.log(
     `Index ${index}: Flavor: ${milkTea.flavor}, Sweetness: ${milkTea.sweetness}, Size: ${milkTea.size}`
+  );
+});
+
+milkTeaOrders.forEach(function (milkTea, index) {
+  const { flavor, sweetness, size } = milkTea;
+  console.log(
+    `Index ${index}: Flavor: ${flavor}, Sweetness: ${sweetness}, Size: ${size}`
   );
 });

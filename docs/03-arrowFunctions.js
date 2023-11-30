@@ -10,8 +10,11 @@ const person = {
   name: 'Alice',
   greet: function () {
     console.log(`Hello, my name is ${this.name}`);
+    console.log(this);
   },
 };
+
+person.greet();
 
 // 2. Hoisted Functions - you can use them before they are declared in your code.
 
@@ -26,6 +29,8 @@ function add(a, b) {
   return a + b;
 }
 
+console.log(add);
+
 // () => {} =========== ARROW FUNCTION DECLARATION AND APPLICATIONS
 
 // Applications:
@@ -33,11 +38,10 @@ function add(a, b) {
 // Implemented mostly in callback functions
 
 // 2. Non Hoisted Functions
-arrowFunction();
-
 const arrowFunction = () => {
   console.log('Hello from arrowFunction!');
 };
+arrowFunction();
 
 // 3. Variable Assignment - delivers concise syntax
 const double = x => x * 2;
@@ -51,15 +55,21 @@ const add = (a, b, c) => {
   return a + b + c;
 };
 
+console.log(add(1, 2, 3));
+
 // 2. If there is only one parameter, it can be declared without parentheses.
 const add = a => {
   return a + 5;
 };
 
+console.log(add(1));
+
 // 3. If there are no parameters, then there must be empty parentheses.
 const greet = () => {
   console.log('Hello!');
 };
+
+greet();
 
 // 4. Supports both explicit and implicit returns
 
@@ -75,7 +85,12 @@ const add = (a, b, c) => {
 // =========== IMPLICIT RETURNS
 
 // Utilizes no return statement and function body is not enclosed in braces
-const add = (a, b, c) => a + b + c;
+
+const addWithReturn = (a, b, c) => a + b + c;
+
+const addWithLog = (a, b, c) => console.log(a, b, c);
+addWithLog(1, 2, 3);
+addWithReturn(1, 2, 3);
 
 // =========== ARROW FUNCTION CONVERSION
 // Steps to Convert:
@@ -90,6 +105,9 @@ function classicAdd(a, b, c) {
 
 // After
 const arrowAdd = (a, b, c) => a + b + c;
+
+console.log(classicAdd(1, 2, 3));
+console.log(arrowAdd(1, 2, 3));
 
 // Before
 function boilWater() {
@@ -132,6 +150,18 @@ const mixMilkTea = () => {
 boilWater();
 
 // =========== CONVERTING ARROW FUNCTION ARGUMENTS TO ARRAY
+// Definition: Arrow functions do not have local variable argument
+
+// function regularFunction() {
+//   console.log(arguments); // Access the arguments variable of regularFunction
+// }
+
+// const arrowFunction = () => {s
+//   console.log(arguments); // Error: 'arguments' is not defined
+// };
+
+// regularFunction(1, 2, 3); // Prints the arguments object
+// arrowFunction(4, 5, 6); // Throws an error
 
 const add = (...args) => {
   console.log(args);
