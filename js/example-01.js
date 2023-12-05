@@ -21,10 +21,18 @@ const chopShop = {
     { name: 'Ruby', price: 800, quantity: 2 },
   ],
 
-  calcTotalPrice(stoneName) {},
+  calcTotalPrice(stoneName) {
+    // const currentStone = this.stones.find(stone => {
+    //   return stone.name === stoneName;
+    // });
+
+    const currentStone = this.stones.find(stone => stone.name === stoneName);
+
+    return currentStone.price * currentStone.quantity;
+  },
 };
 
-// console.log(chopShop.calcTotalPrice('Emerald')); // 5200
-// console.log(chopShop.calcTotalPrice('Diamond')); // 8100
-// console.log(chopShop.calcTotalPrice('Sapphire')); // 9800
-// console.log(chopShop.calcTotalPrice('Ruby')); // 1600
+console.log(chopShop.calcTotalPrice('Emerald')); // 5200
+console.log(chopShop.calcTotalPrice('Diamond')); // 8100
+console.log(chopShop.calcTotalPrice('Sapphire')); // 9800
+console.log(chopShop.calcTotalPrice('Ruby')); // 1600
