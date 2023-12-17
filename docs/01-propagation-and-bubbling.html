@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .parent {
+        border: 2px solid #333;
+        padding: 20px;
+      }
+
+      .child {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #666;
+        cursor: pointer;
+      }
+    </style>
+    <title>Event Propagation vs Bubbling Demo</title>
+  </head>
+  <body>
+    <div class="parent" id="parent">
+      <div class="child" id="child1">Child 1 (Stop Propagation)</div>
+      <div class="child" id="child2">Child 2 (Bubbling)</div>
+    </div>
+
+    <script>
+      // Event propagation
+
+      document.addEventListener('click', function (event) {
+        console.log(
+          'Window Object Clicked (Propagation) - Phase: ',
+          event.eventPhase
+        );
+      });
+
+      document.getElementById('parent').addEventListener(
+        'click',
+        function (event) {
+          console.log(
+            'Parent Element Clicked (Propagation) - Phase:',
+            event.eventPhase
+          );
+        },
+        false
+      );
+
+      document.getElementById('child1').addEventListener(
+        'click',
+        function (event) {
+          console.log(
+            'Child 1 Clicked (Stop Propagation) - Phase:',
+            event.eventPhase
+          );
+          event.stopPropagation(); // Stop propagation to the parent
+        },
+        false
+      );
+
+      document.getElementById('child2').addEventListener(
+        'click',
+        function (event) {
+          console.log('Child 2 Clicked (Bubbling) - Phase:', event.eventPhase);
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

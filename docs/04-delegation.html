@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 8px;
+        font-family: sans-serif;
+      }
+
+      .output {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .color-palette {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        gap: 4px;
+      }
+
+      .color-palette .item {
+        padding: 0;
+        margin: 0;
+        border: none;
+        border-radius: 4px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: transform 250ms ease-in-out;
+      }
+
+      .color-palette .item:hover {
+        transform: scale(1.1);
+      }
+    </style>
+    <title>Color Palette Example with Event Logging</title>
+  </head>
+  <body>
+    <p class="output">Selected color: -</p>
+    <div class="color-palette"></div>
+
+    <script>
+      const colorPalette = document.querySelector('.color-palette');
+      const output = document.querySelector('.output');
+
+      colorPalette.addEventListener('click', selectColor);
+
+      // This is where delegation «magic» happens
+      function selectColor(event) {
+        console.log('Target Element:', event.target);
+        console.log('Current Target Element:', event.currentTarget);
+        console.log('Event Phase:', event.eventPhase);
+
+        if (event.target.nodeName !== 'BUTTON') {
+          console.log('No button clicked, delegation skipped.');
+          return;
+        }
+
+        const selectedColor = event.target.dataset.color;
+        output.textContent = `Selected color: ${selectedColor}`;
+        output.style.color = selectedColor;
+      }
+
+      // Some helper functions to render palette items
+      createPaletteItems();
+
+      function createPaletteItems() {
+        const items = [];
+        for (let i = 0; i < 60; i++) {
+          const color = getRandomHexColor();
+          const item = document.createElement('button');
+          item.type = 'button';
+          item.dataset.color = color;
+          item.style.backgroundColor = color;
+          item.classList.add('item');
+          items.push(item);
+        }
+        colorPalette.append(...items);
+      }
+
+      function getRandomHexColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+
+        return color;
+      }
+    </script>
+  </body>
+</html>

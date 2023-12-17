@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .parent,
+      .child,
+      .descendant {
+        margin: 16px;
+        padding: 16px;
+        border: 4px solid #212121;
+        border-radius: 8px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 20px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .parent {
+        background-color: #673ab7;
+      }
+
+      .child {
+        background-color: #448aff;
+      }
+
+      .descendant {
+        background-color: #ff9800;
+      }
+    </style>
+    <title>Combined Event Propagation Example</title>
+  </head>
+  <body>
+    <div class="parent" id="parent">
+      Parent
+      <div class="child" id="child1">Child 1 (Stop Propagation)</div>
+      <div class="child" id="child2">
+        Child 2 (Bubbling)
+        <div class="descendant" id="descendant">Descendant</div>
+      </div>
+      <div class="child" id="child3">
+        Child 3 (No Action)
+        <div class="descendant" id="descendant3">Descendant</div>
+      </div>
+    </div>
+
+    <script>
+      // Event propagation
+
+      document.addEventListener('click', function (event) {
+        console.log(
+          'Window Object Clicked (Propagation) - Phase: ',
+          event.eventPhase
+        );
+      });
+
+      document.querySelector('.parent').addEventListener(
+        'click',
+        function (event) {
+          console.log(
+            'Parent Element Clicked (Propagation) - Phase:',
+            event.eventPhase
+          );
+        },
+        false
+      );
+
+      document.querySelector('#child1').addEventListener(
+        'click',
+        function (event) {
+          console.log(
+            'Child 1 Clicked (Stop Propagation) - Phase:',
+            event.eventPhase
+          );
+          event.stopPropagation(); // Stop propagation to the parent
+        },
+        false
+      );
+
+      document.querySelector('#child2').addEventListener(
+        'click',
+        function (event) {
+          console.log('Child 2 Clicked (Bubbling) - Phase:', event.eventPhase);
+          console.log('Target Element:', event.target);
+          console.log('Current Target Element:', event.currentTarget);
+          event.stopImmediatePropagation(); // Stop immediate propagation
+        },
+        false
+      );
+
+      document.querySelector('#descendant').addEventListener(
+        'click',
+        function (event) {
+          console.log('Descendant 2 Clicked - Phase:', event.eventPhase);
+        },
+        false
+      );
+
+      document.querySelector('#child3').addEventListener(
+        'click',
+        function (event) {
+          console.log('Child 3 Clicked (Bubbling) - Phase:', event.eventPhase);
+          console.log('Target Element:', event.target);
+          console.log('Current Target Element:', event.currentTarget);
+        },
+        false
+      );
+
+      document.querySelector('#descendant3').addEventListener(
+        'click',
+        function (event) {
+          console.log('Descendant 3 Clicked - Phase:', event.eventPhase);
+          event.stopImmediatePropagation();
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
