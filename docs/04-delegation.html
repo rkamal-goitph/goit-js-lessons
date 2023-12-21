@@ -54,6 +54,7 @@
         console.log('Target Element:', event.target);
         console.log('Current Target Element:', event.currentTarget);
         console.log('Event Phase:', event.eventPhase);
+        console.log(event.target.nodeName);
 
         if (event.target.nodeName !== 'BUTTON') {
           console.log('No button clicked, delegation skipped.');
@@ -61,8 +62,8 @@
         }
 
         const selectedColor = event.target.dataset.color;
-        output.textContent = `Selected color: ${selectedColor}`;
-        output.style.color = selectedColor;
+        output.textContent = `Selected color: ${selectedColor}`; //<p class="output">Selected color: #f9f87b</p>
+        output.style.color = selectedColor; // <p class="output" style="color: #fbf87b;">Selected color: #f9f87b</p>
       }
 
       // Some helper functions to render palette items
@@ -72,12 +73,12 @@
         const items = [];
         for (let i = 0; i < 60; i++) {
           const color = getRandomHexColor();
-          const item = document.createElement('button');
-          item.type = 'button';
-          item.dataset.color = color;
-          item.style.backgroundColor = color;
-          item.classList.add('item');
-          items.push(item);
+          const item = document.createElement('button'); // <button></button>
+          item.type = 'button'; // <button type="button"></button>
+          item.dataset.color = color; // <button type="button" data-color></button>
+          item.style.backgroundColor = color; // <button type="button" style="backgroundColor: color" data-color></button>
+          item.classList.add('item'); // <button type="button" class="item" style="backgroundColor: colo;" data-color></button>
+          items.push(item); // const items = ['<button type="button" class="item" style="backgroundColor: color" data-color></button>', '<button type="button" class="item" style="backgroundColor: color" data-color></button>','<button type="button" class="item" style="backgroundColor: color" data-color></button>', '<button type="button" class="item" style="backgroundColor: color" data-color></button>','<button type="button" class="item" style="backgroundColor: color" data-color></button>']
         }
         colorPalette.append(...items);
       }

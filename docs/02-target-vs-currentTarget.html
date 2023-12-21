@@ -63,6 +63,8 @@
           'Window Object Clicked (Propagation) - Phase: ',
           event.eventPhase
         );
+        console.log('Target Element:', event.target);
+        console.log('Current Target Element:', event.currentTarget);
       });
 
       document.querySelector('.parent').addEventListener(
@@ -72,6 +74,8 @@
             'Parent Element Clicked (Propagation) - Phase:',
             event.eventPhase
           );
+          console.log('Target Element:', event.target);
+          console.log('Current Target Element:', event.currentTarget);
         },
         false
       );
@@ -83,6 +87,8 @@
             'Child 1 Clicked (Stop Propagation) - Phase:',
             event.eventPhase
           );
+          console.log('Target Element:', event.target);
+          console.log('Current Target Element:', event.currentTarget);
           event.stopPropagation(); // Stop propagation to the parent
         },
         false
@@ -94,7 +100,7 @@
           console.log('Child 2 Clicked (Bubbling) - Phase:', event.eventPhase);
           console.log('Target Element:', event.target);
           console.log('Current Target Element:', event.currentTarget);
-          event.stopImmediatePropagation(); // Stop immediate propagation
+          // event.stopImmediatePropagation(); // Stop immediate propagation
         },
         false
       );
@@ -103,6 +109,8 @@
         'click',
         function (event) {
           console.log('Descendant 2 Clicked - Phase:', event.eventPhase);
+          console.log('Target Element:', event.target);
+          console.log('Current Target Element:', event.currentTarget);
         },
         false
       );
@@ -121,6 +129,8 @@
         'click',
         function (event) {
           console.log('Descendant 3 Clicked - Phase:', event.eventPhase);
+          console.log('Target Element:', event.target);
+          console.log('Current Target Element:', event.currentTarget);
           event.stopImmediatePropagation();
         },
         false

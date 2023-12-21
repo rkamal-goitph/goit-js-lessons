@@ -43,16 +43,12 @@
         );
       });
 
-      document.getElementById('parent').addEventListener(
-        'click',
-        function (event) {
-          console.log(
-            'Parent Element Clicked (Propagation) - Phase:',
-            event.eventPhase
-          );
-        },
-        false
-      );
+      document.getElementById('parent').addEventListener('click', event => {
+        console.log(
+          'Parent Element Clicked (Propagation) - Phase:',
+          event.eventPhase
+        );
+      });
 
       document.getElementById('child1').addEventListener(
         'click',

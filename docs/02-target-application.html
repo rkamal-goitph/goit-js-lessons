@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List with Event Targeting</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .todo-list {
+        border: 1px solid #ddd;
+        padding: 10px;
+        list-style: none;
+      }
+
+      .todo-item {
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .todo-item input[type='checkbox'] {
+        flex: 1;
+        margin-right: 10px;
+      }
+
+      .todo-item button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      .completed {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To-Do List</h1>
+    <ul class="todo-list"></ul>
+
+    <input type="text" id="new-item-text" placeholder="Add a new task..." />
+    <button id="add-item-button">Add</button>
+
+    <script>
+      const todoList = document.querySelector('.todo-list');
+      const newItemText = document.getElementById('new-item-text');
+      const addItemButton = document.getElementById('add-item-button');
+
+      function createTodoItem(text) {
+        const itemElement = document.createElement('li');
+        itemElement.classList.add('todo-item');
+
+        const inputElement = document.createElement('input');
+        inputElement.type = 'checkbox';
+        inputElement.addEventListener('change', handleToggleComplete);
+
+        const textElement = document.createTextNode(text);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'X';
+        deleteButton.addEventListener('click', handleDeleteItem);
+
+        itemElement.appendChild(inputElement);
+        itemElement.appendChild(textElement);
+        itemElement.appendChild(deleteButton);
+
+        return itemElement;
+      }
+
+      function handleToggleComplete(event) {
+        console.log('Checkbox clicked (target):', event.target);
+        console.log('Checkbox clicked (currentTarget):', event.currentTarget); // Checkbox itself
+
+        const itemElement = event.currentTarget.parentElement; // To-Do item element
+        itemElement.classList.toggle('completed');
+      }
+
+      function handleDeleteItem(event) {
+        console.log('Delete button clicked (target):', event.target); // Delete button itself
+        console.log(
+          'Delete button clicked (currentTarget):',
+          event.currentTarget
+        ); // To-Do item element
+
+        const itemElement = event.target.parentElement;
+        todoList.removeChild(itemElement);
+        event.stopPropagation();
+      }
+
+      addItemButton.addEventListener('click', function () {
+        const newText = newItemText.value.trim();
+        if (newText) {
+          const newItem = createTodoItem(newText);
+          todoList.appendChild(newItem);
+          newItemText.value = '';
+        }
+      });
+
+      // Add a sample To-Do item
+      const todoItem1 = createTodoItem('Buy groceries');
+      todoList.appendChild(todoItem1);
+
+      // Add more To-Do items by calling `createTodoItem`
+    </script>
+  </body>
+</html>
+
+<!-- This version adds console.logs at two key points: 1. **Checkbox click:** *
+`event.target` logs the specific checkbox element that was clicked. *
+`event.currentTarget` logs the parent element, which is the entire To-Do item
+container. 2. **Delete button click:** * `event.target` logs the specific delete
+button element that was clicked. * `event.currentTarget` logs the parent
+element, again the To-Do item container. This demonstrates how event bubbling
+works, where the click event first triggers on the specific element (checkbox or
+button) and then propagates up to its parent elements. You can see the
+difference between `event -->

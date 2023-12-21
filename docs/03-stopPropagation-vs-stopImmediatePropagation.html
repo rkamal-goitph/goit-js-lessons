@@ -3,62 +3,121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stop Propagation vs. Stop Immediate Propagation Demo</title>
     <style>
       body {
         font-family: Arial, sans-serif;
+        margin: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        margin: 0;
       }
 
-      .parent {
-        border: 2px solid #333;
+      .container {
+        border: 2px solid #ddd;
         padding: 20px;
+        display: flex;
+        flex-direction: column;
       }
 
-      .child {
-        margin: 10px;
-        padding: 10px;
-        border: 1px solid #666;
+      .button {
+        margin: 5px;
+        padding: 10px 20px;
+        border: 1px solid #ddd;
         cursor: pointer;
       }
+
+      .button.confirm {
+        background-color: #20a87c;
+        color: #fff;
+      }
+
+      .button.cancel {
+        background-color: #f44336;
+        color: #fff;
+      }
+
+      .message {
+        font-weight: bold;
+        margin-top: 10px;
+      }
     </style>
-    <title>stopPropagation vs stopImmediatePropagation Demo</title>
   </head>
   <body>
-    <div class="parent" id="parent">
-      <div class="child" id="child1">Child 1 (stopPropagation)</div>
-      <div class="child" id="child2">Child 2 (stopImmediatePropagation)</div>
+    <div class="container">
+      <h2>Product Page</h2>
+      <p>Are you sure you want to purchase this product?</p>
+      <div class="buttons">
+        <button class="button confirm">Order Now</button>
+        <button class="button cancel">Cancel</button>
+      </div>
+      <p class="message"></p>
     </div>
 
     <script>
-      document.getElementById('parent').addEventListener(
-        'click',
-        function (event) {
-          console.log('Parent Element Clicked');
-        },
-        false
-      );
+      const messageElement = document.querySelector('.message');
+      const containerElement = document.querySelector('.container');
 
-      document.getElementById('child1').addEventListener(
-        'click',
-        function (event) {
-          console.log('Child 1 Clicked (stopPropagation)');
-          event.stopPropagation(); // Stop propagation to the parent
-        },
-        false
-      );
+      const logEvent = (elementName, message) =>
+        console.log(`${elementName} clicked: ${message}`);
 
-      document.getElementById('child2').addEventListener(
-        'click',
-        function (event) {
-          console.log('Child 2 Clicked (stopImmediatePropagation)');
-          event.stopImmediatePropagation(); // Stop immediate propagation, preventing other listeners on the same element
-        },
-        false
-      );
+      const orderButton = document.querySelector('.button.confirm');
+      orderButton.addEventListener('click', function (event) {
+        event.preventDefault(); // prevent default form submission
+        logEvent('Order Now', 'Confirmation triggered!');
+        messageElement.textContent = 'Confirmation popup triggered!';
+        // Simulate a confirmation popup opening here
+        // using setTimeout for demonstration purposes
+        setTimeout(() => (messageElement.textContent = ''), 2000);
+      });
+
+      // Option 1: No Propagation Stopping
+
+      // This option demonstrates the default event bubbling behavior
+
+      // orderButton.addEventListener('click', function (event) {
+      //   logEvent('Order Now', 'Clicked without stopping propagation');
+      // });
+
+      // Option 2: Stop Propagation
+
+      // orderButton.addEventListener('click', function (event) {
+      //   logEvent('Order Now', 'Clicked with stopPropagation');
+      //   event.stopPropagation(); // Stop bubbling to parent
+      //   messageElement.textContent = 'Confirmation popup triggered!';
+      //   // Simulate a confirmation popup opening here
+      //   // using setTimeout for demonstration purposes
+      //   setTimeout(() => (messageElement.textContent = ''), 2000);
+      // });
+
+      // containerElement.addEventListener('click', function (event) {
+      //   logEvent('Container', 'Event reached parent element!');
+      // });
+
+      // Option 3: Stop Immediate Propagation
+
+      const cancelButton = document.querySelector('.button.cancel');
+      cancelButton.addEventListener('click', function (event) {
+        logEvent('Cancel', 'Clicked with stopImmediatePropagation');
+        event.stopImmediatePropagation(); // Stop all further event handling
+        messageElement.textContent = 'Purchase cancelled!';
+      });
+
+      // containerElement.addEventListener('click', function (event) {
+      //   logEvent('Container', 'Event reached parent element!');
+      // });
+
+      // Uncomment and test the desired options by removing "//" to see their individual behavior
     </script>
   </body>
 </html>
+
+<!-- This updated code offers three options: 1. **No Propagation Stopping
+(commented):** Shows the default event bubbling where clicking both buttons logs
+messages on both elements. 2. **Stop Propagation (commented):** Demonstrates how
+`stopPropagation` on the "Order Now" button prevents the event from reaching the
+parent element's handler, even though its own logs are printed. 3. **Stop
+Immediate Propagation (active):** Showcases how `stopImmediatePropagation` on
+the "Cancel" button completely stops any further event handling, preventing both
+its own logs and the update of the -->
