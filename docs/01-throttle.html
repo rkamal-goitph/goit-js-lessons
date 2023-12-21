@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 1000vh;
+      }
+
+      #interactiveElement {
+        margin: 20px;
+        padding: 20px;
+        background-color: #2196f3;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .animation-box {
+        height: 200px;
+        width: 200px;
+        background-color: #4caf50;
+        margin: 20px;
+      }
+    </style>
+    <title>Throttle Examples</title>
+  </head>
+  <body>
+    <div class="container">
+      <p>
+        Resize the window, hover over the element, or scroll down the page to
+        see the throttled events in action.
+      </p>
+
+      <div id="interactiveElement">Interactive Element</div>
+
+      <div class="animation-box"></div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      window.addEventListener(
+        'resize',
+        _.throttle(() => {
+          console.log('Window resized (Throttled)');
+          // Your resource-intensive operations or layout calculations
+        }, 300)
+      );
+
+      const interactiveElement = document.getElementById('interactiveElement');
+
+      interactiveElement.addEventListener(
+        'mouseover',
+        _.throttle(() => {
+          console.log('Mouseover event (Throttled)');
+          // Show tooltip or provide visual feedback
+        }, 300)
+      );
+
+      document.addEventListener(
+        'scroll',
+        _.throttle(() => {
+          const scrollPosition = window.scrollY;
+          console.log(`Scroll position (Animation): ${scrollPosition}`);
+          // Update animations based on scroll position
+        }, 200)
+      );
+
+      document.addEventListener(
+        'scroll',
+        _.throttle(() => {
+          const scrollPosition = window.scrollY;
+          console.log(`Scroll position (Load More Content): ${scrollPosition}`);
+          // Load more content if near the bottom
+        }, 300)
+      );
+    </script>
+  </body>
+</html>
