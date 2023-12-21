@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Optimization Demo</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        display: inline-block;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <button id="repaintButton">Change Color</button>
+    <button id="reflowButton">Add Boxes</button>
+    <script src="script.js"></script>
+  </body>
+</html>

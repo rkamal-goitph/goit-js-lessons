@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Script Loading Demo</title>
+    <!-- Defer Script -->
+    <script defer src="deferScript.js"></script>
+    <!-- Async Script -->
+    <script async src="asyncScript.js"></script>
+  </head>
+  <body>
+    <p>Document content...</p>
+    <script>
+      // Inline script to log DOMContentLoaded event
+      // document.addEventListener('DOMContentLoaded', function () {
+      //   console.log('DOM fully loaded and parsed');
+      // });
+      console.log('Inline script executed');
+    </script>
+  </body>
+</html>
