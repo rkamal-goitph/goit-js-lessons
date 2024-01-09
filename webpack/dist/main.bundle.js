@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=document.createElement("h1");e.textContent="Interesting!",document.querySelector("#root").append(e),(()=>{const e=document.createElement("p");e.textContent="This paragraph is inserted using webpack",document.querySelector("#root").append(e)})()})();

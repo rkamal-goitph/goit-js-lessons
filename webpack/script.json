@@ -1,0 +1,24 @@
+{
+  "name": "mock-node-package",
+  "version": "1.0.0",
+  "description": "A mock Node.js package for demonstration purposes",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "run": "echo 'Running the application!'",
+    "test": "echo 'Running tests!' && jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/mock-node-package.git"
+  },
+  "keywords": ["mock", "node", "example"],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
