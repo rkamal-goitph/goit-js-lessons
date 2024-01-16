@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Timer Functions</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      h2 {
+        color: crimson;
+      }
+
+      h3 {
+        color: seagreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript Timer Functions</h1>
+    <hr />
+    <section>
+      <h2>1. setTimeout</h2>
+      <p>Definition: Executes a function after a specified delay.</p>
+      <p>Purpose: To delay the execution of a function.</p>
+      <p>Applications: Delayed actions, animations, etc.</p>
+    </section>
+
+    <section>
+      <h2>2. clearTimeout</h2>
+      <p>Definition: Clears a timeout set with setTimeout.</p>
+      <p>
+        Purpose: To stop the execution of the function set to run after the
+        delay.
+      </p>
+      <p>Applications: Cancel delayed actions if conditions change.</p>
+    </section>
+
+    <section>
+      <h2>3. setInterval</h2>
+      <p>
+        Definition: Executes a function repeatedly, with a fixed time delay
+        between each call.
+      </p>
+      <p>Purpose: To run a function repeatedly at set intervals.</p>
+      <p>
+        Applications: Repeating animations, updating the UI at regular
+        intervals, etc.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. clearInterval</h2>
+      <p>Definition: Clears a timer set with setInterval.</p>
+      <p>Purpose: To stop the execution of the interval function.</p>
+      <p>Applications: Stopping repeating actions when conditions change.</p>
+    </section>
+
+    <br /><br />
+    <h1>JavaScript Date Object</h1>
+    <hr />
+    <section>
+      <h2>1. Creating a Date Object</h2>
+      <p>There are several ways to create a new date object:</p>
+      <ul>
+        <!-- List all instantiation methods here -->
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. UNIX Time</h2>
+      <p>
+        The UNIX timestamp is a way to track time as a running total of seconds.
+      </p>
+      <!-- Example of UNIX time -->
+    </section>
+
+    <section>
+      <h2>3. Getter Methods</h2>
+      <p>These methods allow you to get parts of the date:</p>
+      <!-- List getter methods with examples -->
+    </section>
+
+    <section>
+      <h2>3. UTC Getter Methods</h2>
+      <p>These methods provide date and time in UTC:</p>
+      <!-- List UTC getter methods with examples -->
+    </section>
+
+    <section>
+      <h2>4. Setter Methods</h2>
+      <p>Setter methods are used to set parts of the date:</p>
+      <!-- List setter methods with examples -->
+    </section>
+
+    <section>
+      <h2>5. Formatting Methods</h2>
+      <p>Various methods format the date and time:</p>
+      <!-- List formatting methods with examples -->
+    </section>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <h1>JavaScript Date Object Exercises</h1>
+    <hr />
+    <div class="exercise">
+      <h3>1. Create a Date Object:</h3>
+      <p>
+        Write a script to create a Date object for the current date and time.
+      </p>
+    </div>
+
+    <div class="exercise">
+      <h3>2. Display the Current Year:</h3>
+      <p>Use a getter method to display the current year.</p>
+    </div>
+
+    <div class="exercise">
+      <h3>3. Format the Date:</h3>
+      <p>
+        Use toLocaleDateString() to display today's date in the format
+        mm/dd/yyyy.
+      </p>
+    </div>
+
+    <div class="exercise">
+      <h3>4. Find the Day of the Week:</h3>
+      <p>
+        Determine the day of the week (e.g., Monday, Tuesday) for today's date.
+      </p>
+    </div>
+
+    <div class="exercise">
+      <h3>5. Calculate Age:</h3>
+      <p>Given a birthdate (e.g., 1995-12-17), calculate the current age.</p>
+    </div>
+
+    <div class="answer-key">
+      <h3>Answer Key (Pseudocode):</h3>
+      <ol>
+        <li>
+          <strong>Create a Date Object:</strong>
+          <p>SET currentDate TO new instance of Date</p>
+          <p>DISPLAY currentDate</p>
+        </li>
+        <li>
+          <strong>Display the Current Year:</strong>
+          <p>
+            SET currentYear TO year from currentDate (using getFullYear method)
+          </p>
+          <p>DISPLAY currentYear</p>
+        </li>
+        <li>
+          <strong>Format the Date:</strong>
+          <p>
+            SET formattedDate TO currentDate formatted as "mm/dd/yyyy" (using
+            toLocaleDateString method)
+          </p>
+          <p>DISPLAY formattedDate</p>
+        </li>
+        <li>
+          <strong>Find the Day of the Week:</strong>
+          <p>
+            SET daysArray TO array of days ["Sunday", "Monday", ..., "Saturday"]
+          </p>
+          <p>
+            SET dayOfWeek TO day from currentDate (using getDay method) indexed
+            in daysArray
+          </p>
+          <p>DISPLAY dayOfWeek</p>
+        </li>
+        <li>
+          <strong>Calculate Age:</strong>
+          <p>SET birthDate TO new Date instance with given birthdate string</p>
+          <p>
+            SET ageDifference TO difference in milliseconds between currentDate
+            and birthDate
+          </p>
+          <p>SET age TO convert ageDifference into years</p>
+          <p>DISPLAY age</p>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Links to JavaScript files -->
+    <!-- <script src="./js/setTimeoutExample.js"></script> -->
+    <!-- <script src="./js/clearTimeoutExample.js"></script> -->
+    <!-- <script src="./js/setIntervalExample.js"></script> -->
+    <!-- <script src="./js/clearIntervalExample.js"></script> -->
+
+    <!-- Link to JavaScript file -->
+    <!-- <script src="./js/dateExamples.js"></script> -->
+  </body>
+</html>
