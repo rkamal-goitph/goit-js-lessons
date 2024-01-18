@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1 {
+        color: navy;
+      }
+
+      h2 {
+        color: crimson;
+      }
+
+      strong {
+        color: seagreen;
+      }
+    </style>
+    <title>Promises</title>
+  </head>
+  <body>
+    <h1>JavaScript Promises</h1>
+    <p>
+      <strong>Promise</strong> is an object representing the current state of an
+      asynchronous operation. <br /><br />It serves as a wrapper for a value
+      that is not known when the promise is created. <br /><br />This approach
+      enables handling the results of asynchronous operations as if they were
+      synchronous: instead of directly returning the result of the asynchronous
+      operation, a promise for the future result is provided.
+    </p>
+
+    <h2>1. States of a Promise</h2>
+    <p>A promise can assume one of three states:</p>
+    <ul>
+      <li>
+        <strong>Pending:</strong> The initial state upon creating a promise.
+      </li>
+      <br />
+      <li>
+        <strong>Fulfilled:</strong> Indicates that the operation was completed
+        successfully, yielding some result.
+      </li>
+      <br />
+      <li>
+        <strong>Rejected:</strong> Signifies that the operation was unsuccessful
+        and was rejected with an error.
+      </li>
+    </ul>
+
+    <!-- <script src="./js/01-promise-creation.js"></script> -->
+    <!-- <script src="./js/02-then-method.js"></script> -->
+    <!-- <script src="./js/03-catch-method.js"></script> -->
+    <!-- <script src="./js/04-finally-method.js"></script> -->
+    <!-- <script src="./js/05-promise-chaining.js"></script> -->
+    <!-- <script src="./js/06-callback-chaining.js"></script> -->
+    <script src="./js/07-promise-conversion.js"></script>
+  </body>
+</html>
