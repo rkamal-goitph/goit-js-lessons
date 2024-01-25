@@ -1,5 +1,5 @@
 // Change value of isSuccess variable to call resolve or reject
-const isSuccess = false;
+const isSuccess = true;
 
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -16,17 +16,12 @@ console.log('Before promise.then()');
 
 // Registering promise callbacks
 promise.then(
-  // onResolve will run third or not at all
-  value => {
+  function onResolvePromise(value) {
     console.log('onResolve call inside promise.then()');
     console.log(value); // "Success! Value passed to resolve function"
   },
-  // onReject will run third or not at all
-  error => {
+  function onRejectPromise(error) {
     console.log('onReject call inside promise.then()');
     console.log(error); // "Error! Error passed to reject function"
   }
 );
-
-// Will run second
-console.log('After promise.then()');

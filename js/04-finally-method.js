@@ -1,5 +1,5 @@
 // Change value of isSuccess variable to call resolve or reject
-const isSuccess = false;
+const isSuccess = true;
 
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {

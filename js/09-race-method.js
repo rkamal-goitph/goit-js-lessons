@@ -4,7 +4,7 @@ const makePromise = (text, delay) => {
   });
 };
 
-const promiseA = makePromise('promiseA value', 1000);
+const promiseA = makePromise('promiseA value', 10000);
 const promiseB = makePromise('promiseB value', 3000);
 
 Promise.race([promiseA, promiseB])
