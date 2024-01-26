@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Manager</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <h1 class="post-manager-title">Post Manager</h1>
+    <div class="post-form" id="js-post-form">
+      <input
+        type="text"
+        id="js-title-input"
+        class="post-form-input"
+        placeholder="Title"
+      />
+      <textarea
+        id="js-body-input"
+        class="post-form-textarea"
+        placeholder="Body"
+      ></textarea>
+      <button id="js-save-post" class="post-form-button">Save Post</button>
+    </div>
+    <div class="posts-container" id="js-posts-container"></div>
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>
