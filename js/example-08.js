@@ -10,7 +10,14 @@ const doubleDigitHours = String(hours).padStart(2, 0);
 const doubleDigitMinutes = String(minutes).padStart(2, 0);
 console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
 
-function formatTime(minutes) { }
+function formatTime(minutes) {
+  const hours = Math.floor(minutes / 60)
+    .toString()
+    .padStart(2, 0);
+  const min = (minutes % 60).toString().padStart(2, 0);
+
+  return `${hours}:${min}`;
+}
 
 console.log(formatTime(70)); // "01:10"
 console.log(formatTime(450)); // "07:30"

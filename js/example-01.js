@@ -5,5 +5,12 @@
 
 // Body mass index must be rounded to one decimal place;
 
+function calcBMI(weight = '', height = '') {
+  const parsedWeight = Number(weight.replace(',', '.'));
+  const parsedHeight = Number(height.replace(',', '.'));
+
+  return (parsedWeight / parsedHeight ** 2).toFixed(1);
+}
+
 const bmi = calcBMI('88,3', '1.75');
 console.log(bmi); // 28.8
