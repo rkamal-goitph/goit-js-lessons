@@ -27,7 +27,7 @@ function addCourse(newCourse) {
   courses.push(newCourse);
 }
 
-function replaceCourse(name, newName = null) {
+function replaceCourse(name, newName = noll) {
   const courseIndex = courses.indexOf(name);
 
   if (courseIndex === -1) {
